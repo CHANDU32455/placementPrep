@@ -1,0 +1,18 @@
+As i forgot to organize stuff daywise,. here comes a note for future verification:
+
+started with basics
+gone to arrays
+gone to some basic problems
+then to strings + problems
+then to matrices + problems + patterns
+then to oos: 
+    inheritance
+    polymorphism
+    encapsulation
+    abstraction
+    inerfaces
+
+i touched multithreading -- proof of concept: capsytone project :: authenticator..
+
+then to hashmaps etc stuff..
+then today at linkedlists...
