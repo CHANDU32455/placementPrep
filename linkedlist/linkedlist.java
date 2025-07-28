@@ -155,6 +155,83 @@ Output: 1 -> 3 -> 5 -> 2 -> 4
         }
         return 0;
     }
+    public void delateAtPos(int reqpos){
+        Node temp = this.head;
+        int pos = 1;
+        if(temp == null){
+            System.out.println("LL is empty..");
+            return;
+        }
+        if(reqpos > llLength() || reqpos < 1){
+            System.out.println("Invalid pos..");
+            return;
+        }
+        if(reqpos == 1){
+            deleteAtFront();
+            return;
+        }
+        while(temp!=null){
+            if(pos == reqpos-1){
+                temp.next = temp.next.next;
+                return;
+            }
+            temp = temp.next;
+        }
+    }
+
+    public void SumOfAllNodes(){
+        if(this.head == null){
+            System.out.println("LL is empty..");
+            return;
+        }
+        Node temp = this.head;
+        int sum = 0;
+        while(temp!=null){
+            sum += temp.data;
+            temp = temp.next;
+        }
+        System.out.println("Sum of all nodes: "+ sum);
+    }
+    public int countOfSpecificElement(int ele){
+        if(this.head == null){
+            System.out.println("LL is empty..");
+            return 0;
+        }
+        int count = 0;
+        Node temp = this.head;
+        while(temp != null){
+            if(temp.data == ele){
+                count++;
+            }
+            temp = temp.next;
+        }
+        return count;
+    }
+
+    public int absOddSumEvenSum(){
+        if(this.head == null){
+            System.out.println("LL is empty..");
+            return 0;
+        }
+        int pos = 0, evensum = 0, oddsum = 0;
+        Node temp = this.head;
+        while(temp != null){
+            if(pos%2 == 0){
+                evensum += temp.data;
+            }else{
+                oddsum += temp.data;
+            }
+            temp = temp.next;
+            pos++;
+        }
+        System.out.println("even sum: "+ evensum);
+        System.out.println("odd sum: "+ oddsum);
+        return Math.abs(oddsum-evensum);
+    }
+
+    public void reversingALinkeddList(){
+        
+    }
 }
 
 public class linkedlist {
@@ -197,6 +274,10 @@ public class linkedlist {
             System.out.println("6. display");
             System.out.println("7. odd even linkedlist");
             System.out.println("8. search node data");
+            System.out.println("9. delete at pos");
+            System.out.println("10. count of specific element");
+            System.out.println("11. sum of all nodes");
+            System.out.println("12. abs of odd sum and even sum");
             System.out.println("enter your choice: ");
             int choice = Integer.parseInt(System.console().readLine());
             switch (choice) {                
@@ -234,6 +315,24 @@ public class linkedlist {
                         System.out.println("enter data: ");
                         int data = Integer.parseInt(System.console().readLine());
                         System.out.println(ll.searchNodeData(data));
+                    }
+                    case 9 ->                     {
+                        System.out.println("enter pos: ");
+                        int pos = Integer.parseInt(System.console().readLine());
+                        ll.delateAtPos(pos);
+                    }
+                    case 10 ->{
+                        System.out.println("Enter val to find: ");
+                        int ele = Integer.parseInt(System.console().readLine());
+                        System.out.println("count: "+ ll.countOfSpecificElement(ele));
+                    }
+                    case 11 -> {
+                        System.out.println("Sum of all nodes: ");
+                        ll.SumOfAllNodes();
+                    }
+                    case 12 -> {
+                        System.out.println("abs of odd sum and even sum: ");
+                        System.out.println(ll.absOddSumEvenSum());
                     }
                 default -> {
                     System.out.println("invalid choice..");
